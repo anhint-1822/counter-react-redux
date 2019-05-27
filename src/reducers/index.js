@@ -1,21 +1,22 @@
-import ActionNames from '../constants';
+const ActionTypes = {
+  INCREMENT: 'INCREMENT',
+  DECREMENT: 'DECREMENT'
+};
 
 const initialState = {
-  votes: 0
+  counter: 0
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionNames.UP:
+    case ActionTypes.INCREMENT:
       return {
-        ...state,
-        votes: state.votes + 1
+        counter: state.counter + 1
       };
     
-    case ActionNames.DOWN:
+    case ActionTypes.DECREMENT:
       return {
-        ...state,
-        votes: Math.max(state.votes - 1, 0)
+        counter: Math.max(state.counter - 1, 0)
       };
 
     default:
